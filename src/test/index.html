@@ -1,0 +1,28 @@
+<html>
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/unslider.css">
+	<link rel="stylesheet" href="assets/css/unslider-dots.css">
+	<script src="assets/js/jquery-1.11.3.js"></script>
+	<script src="assets/js/unslider.js"></script>
+
+	</head>
+	<body>
+	<div class="jslider">
+		<ul>
+			<li><img src="assets/img/1.jpg" height="582" width="1200" alt="1"></li>
+			<li><img src="assets/img/2.jpg" height="582" width="1200" alt="2"></li>
+			<li><img src="assets/img/3.jpg" height="582" width="1200" alt="3"></li>
+		</ul>
+		</div>
+	</body>
+	<script>
+			jQuery(document).ready(function($) {
+				$('.jslider').unslider({
+					autoplay: true,
+					infinite: true,
+				});
+			});
+	</script>
+</html>
