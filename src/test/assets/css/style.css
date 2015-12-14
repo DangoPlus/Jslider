@@ -1,0 +1,6 @@
+body{
+	background-color: gray;
+	width: 100%;
+}
+.jslider img { display: block; width: 100%; height: auto; margin-left: -40px;}
+.jslider2 img { display: block; width: 100%; height: auto; margin-left: -40px;}
