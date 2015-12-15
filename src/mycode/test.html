@@ -13,6 +13,7 @@
 		position: relative;
 		margin: 0;
 		padding: 0;
+
 }
 	.jslider ul li{
 		position: relative;
@@ -20,10 +21,9 @@
 		float: left;
 		margin: 0;
 		padding: 0;
-		width: 1200px;
+		width: 200px;
 		/*有问题，不能100%*/
-		height: 500px;
-		}
+		height: 200px;
 	}
 	.jslider img{
 		width: 100%;
@@ -34,24 +34,38 @@
 	<body>
 	<div class="jslider">
 		<ul>
-			<li><img src="1.jpg" height="582" width="1200" alt="1"></li>
-			<li><img src="2.jpg" height="582" width="1200" alt="2"></li>
-			<li><img src="3.jpg" height="582" width="1200" alt="3"></li>
+			<li><img src="1.jpg" height="200" width="200" alt="1"></li>
+			<li><img src="2.jpg" height="200" width="200" alt="2"></li>
+			<li><img src="3.jpg" height="200" width="200" alt="3"></li>
+			<li><img src="1.jpg" height="200" width="200" alt="1"></li>
+			<li><img src="2.jpg" height="200" width="200" alt="2"></li>
+			<li><img src="3.jpg" height="200" width="200" alt="3"></li>
+			<li><img src="1.jpg" height="200" width="200" alt="1"></li>
+			<li><img src="2.jpg" height="200" width="200" alt="2"></li>
+			<li><img src="3.jpg" height="200" width="200" alt="3"></li>
+			<li><img src="1.jpg" height="200" width="200" alt="1"></li>
+			<li><img src="2.jpg" height="200" width="200" alt="2"></li>
+			<li><img src="3.jpg" height="200" width="200" alt="3"></li>
 		</ul>
 		</div>
 	</body>
 	<script>
-			jQuery(document).ready(function ($) {
+		(function($){
+			if(!$){
+				return console.error('哈哈哈哈你没有加载jQ')
+			}
+
+			$.Jslider = function(options){
+
 
 				var slideCount = $('.jslider ul li').length;
 				var slideWidth = $('.jslider ul li').width();
 				var slideHeight = $('.jslider ul li').height();
 				var sliderUlWidth = slideCount * slideWidth;
 
-				$('.jslider').css({ width: slideWidth, height: slideHeight });
+				$('.jslider').css({width: slideWidth, height: slideHeight });
 				$('.jslider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
 				$('.jslider ul li:last-child').prependTo('.jslider ul');
-				//把silde的高宽赋值给函数 添加到.jslider。slider的ul宽度为slide数量乘以宽度，设定参数marginleft减去slide的宽度。把最后一个子元素li插入目标起始处。
 
 				function moveLeft() {
 					$('.jslider ul').animate({
@@ -60,29 +74,27 @@
 						$('.jslider ul li:last-child').prependTo('.jslider ul');
 						$('.jslider ul').css('left', '0');
 					});
-				//animate() p544 动画事件
-				//append() appendTo()			在目标元素结尾处插入内容
-				// prepend() prependTo() 	 	在目标元素起始处插入内容 	p529 修改文档结构
-				//$(target).method(content) append() prepend()
-				//$(content).method(target) appendTo() prependTo()
-				//缓动 p547
 				};
+
 
 				function moveRight() {
 					$('.jslider ul').animate({
 						left: - slideWidth
-						}, 200, function () {
-					$('.jslider ul li:first-child').appendTo('.jslider ul');
-					$('.jslider ul').css('left', '0');
+					}, 200, function () {
+						$('.jslider ul li:first-child').appendTo('.jslider ul');
+						$('.jslider ul').css('left', '0');
 					});
 				};
 
 				function autoplay() {
 					setInterval(function(){
 						moveRight();
-					},7000);//周期调用moveRight
+					},2000);//周期调用moveRight
 				};
-				autoplay();
-			});
+
+
+
+			}
+		}(window.jQuery));
 	</script>
 </html>
